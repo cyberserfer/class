@@ -1,0 +1,151 @@
+*  
+{
+    padding:0px;
+    margin: 0px;
+}
+
+body
+{
+    background-color:#1d1b1b;
+    color: #ffffff;
+    font-family: "Arial", Sans-Serif;
+    font: .6em;
+}
+
+.banner
+{
+ 
+}
+.logo
+{
+
+    align: left;
+}
+
+.phone
+{
+    font: .8em;
+    color: white;
+    position: absolute;
+    top: 25px;
+    right: 30;
+
+}
+
+.menu
+{
+    list-style: none;
+    text-align:left;
+    background-color: #303030;
+}
+
+.menu li:hover
+{
+    background-color: #cc9999;
+}
+
+.menu li
+{
+    display:inline-block;
+    width: 75px;    
+    text-align:center;
+    padding: 3px 0 0 10px;
+    border-bottom: 3px solid #303030;           
+    background-color: #303030;
+}
+
+.menu li a
+{
+    text-decoration:none;
+    color: #ffffff;
+}
+
+.info
+{
+    list-style: none;
+    text-align:left;
+    background-color: #272727;
+    border-bottom: 5px
+    margin: 5 0 15 0;
+}
+
+.info li
+{
+    display:inline-block;
+    width: 220px;  
+    height: 100px;  
+    padding: 3px 0 0 10px;
+}
+
+.info li img
+{
+    float: left;
+}
+
+.infotitle
+{
+    font-family: "Times New Roman", Georgia, Serif; 
+    font: 1.2em;
+    color: #e88009;
+}
+
+.buypane
+{
+
+}
+
+.buypane p
+{
+    width: 600px;
+}
+
+.buybutton
+{
+    background-color: #e88009;
+    border-radius: 10px;
+    width: 100px;  
+    height: 30px;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    left: 750px;
+    bottom: 50px;
+
+}
+
+.buytitle
+{
+    font: 1.3em serif;
+}
+
+.portfolio
+{
+    list-style: none;
+    text-align: left;
+    background-color: #272727;
+    border-bottom: 5px
+}
+
+.portfolio li
+{
+    display:inline-block;
+    width: 225px;  
+    height: 100px;  
+    text-align:left;
+    padding: 3px 0 0 10px;
+}
+
+.portfoliotitle
+{
+    font-family: "Times New Roman", Georgia, Serif;
+    font: 1.1em serif;
+    color: #e88009;
+}
+
+.vap
+{
+    align: right;
+    position: absolute;
+    right: 30;
+    color: #e88009;;
+}
