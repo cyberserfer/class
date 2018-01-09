@@ -4,47 +4,45 @@
 <html>
 <head>
 <script language="javascript">
-/*
 
-*/
+var tot;
+var test1 = [1, 2, 3];
+console.log(magic_multiply(test1, 2));
 
-function zero_negativity(numb1){
-	if (number1 < 0) {
-	    return true;
-	} else {
-	    return false;
-	}
-}
-
-function is_even(numb2){
-	if (value2 % 2 == 0) {
-	    return true;
-	} else {
-	    return false;
-	}
-}
-
-function how_many_even(numb3){
-	for ( let i = 0; i < numb3.length; i++ ) {
-		if (is_even(numb3)){
-			tot++;
+function magic_multiply(x, y){
+    
+    //test 1
+ 	if (x == 5 && y == 2){
+ 		tot=10;
+ 	}
+    //test 2
+    else if (x == 0 && y == 0){
+    	tot="All inputs 0";
+    }
+    //test 3
+    if (x.isArray && y.isInteger){
+    	var tot = [];
+    	for ( let i = 0; i < x.length; i++ ) {
+			tot[i] = tot[i] * y;
 		}
-	return tot;
+		console.log("value of tot: " + tot);
 	}
+    
+	//test 4
+	else if (typeof y === 'string'){
+		tot="Error: Can not multiply by string";
+	}
+	//test 5
+	else if (x === 'Brendo'){
+		tot=x.repeat(y);
+	}
+	else{
+		tot=x*y;
+	}
+
+    return tot;
 }
 
-function create_dummy_array(n){
-	var newarray = [];
-	for ( let i = 0; i < n; i++ ){
-		newarray[i] = Math.random() * 9;
-	}
-	return newarray;
-}
-
-function random_choice(arr){
-	i = Math.random() * arr.length;
-	return arr[i];
-}
 
 </script>
 </head>

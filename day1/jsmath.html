@@ -28,29 +28,26 @@ function is_even(numb2){
 	}
 }
 
-var hmearray = [2, 4, 5, 6, 9, 13];
-var tot = 0;
+var hmearray = [2, 4, 5, 6, 8, 13];
+let tot = 0;
 console.log(how_many_even(hmearray));
 
 function how_many_even(numb3){
-	console.log("array length is " + numb3.length);
 	for ( let i = 0; i < numb3.length; i++ ) {
-		console.log("loop value is " + i);
-		console.log("array length in for is " + numb3.length);
-		console.log("array val is " + numb3[i]);
 		if (numb3[i] % 2 == 0){
 			tot = tot + 1;
 		}
-	console.log(tot + "inside")
-	return tot;
 	}
+	return tot;
 }
 
+var n;
+console.log(create_dummy_array(5));
 
 function create_dummy_array(n){
 	var newarray = [];
 	for ( let i = 0; i < n; i++ ){
-		newarray[i] = Math.random() * 9;
+		newarray[i] = Math.floor(Math.random() * 9);
 	}
 	return newarray;
 }
