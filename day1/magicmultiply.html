@@ -19,14 +19,16 @@ function magic_multiply(x, y){
     else if (x == 0 && y == 0){
     	tot="All inputs 0";
     }
-    //test 3
+    //test 3 
+    
     if (x.isArray && y.isInteger){
-    	var tot = [];
+    	var tot1 = [];
     	for ( let i = 0; i < x.length; i++ ) {
-			tot[i] = tot[i] * y;
+			tot1[i] = x[i] * y;
 		}
+		return tot1;
 		console.log("value of tot: " + tot);
-	}
+	} 
     
 	//test 4
 	else if (typeof y === 'string'){
