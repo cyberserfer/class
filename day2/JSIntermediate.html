@@ -1,0 +1,39 @@
+
+
+
+<html>
+<head>
+<script language="javascript">
+
+let stars = starString(8)
+console.log(stars)
+
+function starString(n){
+	return "*".repeat(n);
+}
+
+//let x = [4, 6, 1, 3, 5, 7, 25]
+let x = [4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"]
+
+console.log(drawStars(x))
+
+function drawStars(s){
+	var v=[]
+	for (i=0; i < s.length; i++){
+		if (typeof s[i] === 'string'){
+			v[i] = s[i].charAt(0).toLowerCase().repeat(s[i].length)
+		}
+		else {
+			v[i] = "*".repeat(s[i])
+		}
+	}
+	return v;
+}
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
