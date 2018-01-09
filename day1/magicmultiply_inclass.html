@@ -1,0 +1,78 @@
+<html>
+<head>
+<script language="javascript">
+
+
+console.log(magic_multiply(test1, 2));
+
+function magic_multiply(x, y){
+    
+    if(typeof y === 'string'){
+    	return "Error: cannot multiply by string"
+    }
+
+    if(typeof x === 'string'){
+    	return x.repeat(y);
+    }
+
+    if(x instanceof Object){
+    	for(let prop in x){
+    		x[prop] = x[prop]*y;
+    	}
+    	return x;
+    }
+
+    if(x instanceof Array){
+    	let outputArray = [];
+    	x.forEach(function(value)){
+    		outputArray.push(value*y);
+    	}
+    	return outputArray;
+    }
+
+    if(x instanceof Array){
+    	let arr = x.map(function(value){
+    		return value * y;
+    	});
+    	return arr;
+    }
+
+	if(Array.isArray(x)){
+		let outputArray = [];
+		for(let i=0; i < x.length; i++){
+			outputArray.push(x[i]*y);
+		}
+		return outputArray;
+	}
+
+ 	return x*y;    
+
+
+}
+let test1 = magic_multiply(5, 2);
+console.log(test1);
+// => 10
+Test 2
+let test2 = magic_multiply(0, 0);
+console.log(test2);
+// => "All inputs 0"
+Test 3
+let test3 = magic_multiply([1, 2, 3], 2);
+console.log(test3);
+// => [2, 4, 6]
+Hint: You will need to handle your output differently depending on if x is an array or an integer.
+
+Test 4
+let test4 = magic_multiply(7, "three");
+console.log(test4);
+// => "Error: Can not multiply by string"
+Test 5 - Bonus
+let test5 = magic_multiply("Brendo", 4);
+console.log(test5);
+// => "BrendoBrendoBrendoBrendo"
+
+</script>
+</head>
+<body>
+</body>
+</html>

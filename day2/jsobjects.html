@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="target"></div>
+</body>
+<script type="text/javascript">
+	
+let students = [
+    {name: 'Remy', cohort: 'Jan'},
+    {name: 'Genevieve', cohort: 'March'},
+    {name: 'Chuck', cohort: 'Jan'},
+    {name: 'Osmund', cohort: 'June'},
+    {name: 'Nikki', cohort: 'June'},
+    {name: 'Boris', cohort: 'June'}
+];
+
+// this should be a for loop that iterates through the array
+
+for(let list in students){
+    // when we log 'topping', we notice it's a key
+    console.log(list);
+    // when we pass the key to the 'sandwich' object, we can pull values
+    console.log(students[list]);
+ }
+
+ let users = {
+    employees: [
+        {'first_name':  'Miguel', 'last_name' : 'Jones'},
+        {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+        {'first_name' : 'Nora', 'last_name' : 'Lu'},
+        {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+    ],
+    managers: [
+       {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+       {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+    ]
+ };
+
+// investigate for of loop
+
+ for(let list in users){
+    // when we log 'topping', we notice it's a key
+    console.log(list);
+    // when we pass the key to the 'sandwich' object, we can pull values
+    console.log(users);
+ }
+
+</script>
+</html>
+copy
