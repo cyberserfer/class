@@ -20,12 +20,22 @@ let students = [
 
 // this should be a for loop that iterates through the array
 
+function studentList(x){
+	for(let i = 0; i < x.length; i++){
+		let po = x[i]
+		console.log(po)
+	}
+}
+
+studentList(students);
+/*
 for(let list in students){
     // when we log 'topping', we notice it's a key
     console.log(list);
     // when we pass the key to the 'sandwich' object, we can pull values
     console.log(students[list]);
  }
+ */
 
  let users = {
     employees: [
@@ -42,13 +52,32 @@ for(let list in students){
 
 // investigate for of loop
 
- for(let list in users){
-    // when we log 'topping', we notice it's a key
-    console.log(list);
-    // when we pass the key to the 'sandwich' object, we can pull values
-    console.log(users);
- }
+/*
+ function userList(z){
+	console.log(z)
+	console.log(Object.values(z))
+	for(let i = 0; i < z.length; i++){
+		let ul = z[i]
+		console.log(ul)
+	}
+}
+*/
+
+for(let key in users) {
+  // keys
+  console.log( key );  // name, age, isAdmin
+  // values for the keys
+  for (let i = 0; i < users[key].length; i++){
+  	console.log( users[key][i] ); // John, 30, true
+  }
+}
+
+//userList(users);
 
 </script>
 </html>
-copy
+
+
+
+
+
