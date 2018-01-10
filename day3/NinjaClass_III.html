@@ -1,0 +1,58 @@
+<html>
+<body>
+    
+<script>
+    
+function Ninja(name){
+    // attributes of a person
+    this.name = name;
+    this.health = 100;
+    this.speed = 3;
+    this.strength = 3;
+
+    this.sayName = function(){
+        console.log("The Ninja's name is " + this.name);
+    }
+    
+    this.showStats = function(){
+        console.log("The Ninja's Strenth is " + strength + " Speed is " + speed  + " and Health is " + health);
+    } 
+    
+    this.drinkSake = function(){
+        this.health += 10;
+    } 
+
+    this.speakWisdom = function(){
+        this.drinkSake;
+        console.log("What is the sound of one hand clapping?");
+    } 
+
+}
+
+const superSensei = new Sensei("Master Splinter");
+superSensei.speakWisdom();
+// -> "What one programmer can do in one month, two programmers can do in two months."
+superSensei.showStats();
+// -> "Name: Master Splinter, Health: 210, Speed: 10, Strength: 10"
+
+/*
+const blueNinja = new Ninja("Goemon");
+const redNinja = new Ninja("Bill Gates");
+console.log(blueNinja);
+console.log(redNinja);
+redNinja.punch(blueNinja);
+blueNinja.kick(redNinja);
+redNinja.punch(blueNinja);
+blueNinja.kick(redNinja);
+
+const ninja1 = new Ninja("Hyabusa");
+ninja1.sayName();
+// -> "My ninja name is Hyabusa!"
+ninja1.showStats();
+// -> "Name: Hayabusa, Health: 100, Speed: 3, Strength: 3"
+ninja1.drinkSake();
+console.log("this is the health " + ninja1.health);
+*/
+</script>   
+</body>
+</html>

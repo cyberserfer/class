@@ -25,19 +25,19 @@ function Ninja(name){
     
     // This should add +10 Health to the Ninja
     this.drinkSake = function(){
-        this.health = this.health + 10;
+        this.health += 10;
     } 
 
     this.punch = function(victim){
         if(victim instanceof Ninja){
-            victim.health = victim.health - 5;
+            victim.health -= 5;
             console.log(victim.name + " was punched by " + this.name + " and lost 5 Health! Health is now " + victim.health);
         }
     }
 
     this.kick = function(victim){
         if(victim instanceof Ninja){
-            victim.health = victim.health - 15;
+            victim.health -= 15;
             console.log(victim.name + " was kicked by " + this.name + " and lost 15 Health! Health is now " + victim.health);
         }
     }
