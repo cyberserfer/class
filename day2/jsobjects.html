@@ -74,6 +74,27 @@ for(let key in users) {
 
 //userList(users);
 
+// code from class run through
+
+function printUser(user, idx){
+	let name = user.last_name.toUpperCase() + ", " + user.first_name.toUpperCase();
+	let length = user.last_name + user. first_name;
+
+//	console.log(" from print user "):
+//	console.log(user);
+
+	console.log(idx +1 + " " + name + " - " + length);
+
+}
+
+for(let key in users) {
+  // keys
+  console.log( key.toUpperCase());  // name, age, isAdmin
+  // values for the keys
+  user[key].forEach(printUser)
+ 
+ }
+
 </script>
 </html>
 
