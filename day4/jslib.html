@@ -1,0 +1,83 @@
+<html>
+<body>
+    
+<script>
+    
+//Can we make this into a method of an object?
+//function each(arr, callback) {
+  // loop through the array
+//  for(var i = 0; i < arr.length; i++) {
+//    callback(arr[i]); // invoking the callback many times... delegation!
+ // }
+//}
+
+var _ = {
+   each: function(arr, callback){
+    for(var i = 0; i < arr.length; i++) {
+    callback(arr[i]);
+    }
+   },
+
+   map: function(arr, callback) {
+     let newArr=[];
+    for(var i = 0; i < arr.length; i++){
+        newArr[i] = callback(arr[i])
+    }
+    return newArr 
+   },
+
+   reduce: function(arr, callback) { 
+//     return arr.reduce((a,b) => a + b)  // this is an awesome function
+   let totVal=0;
+    for(var i = 0; i < arr.length; i++){
+        totVal = callback(arr[i], totVal)
+    }
+    return totVal 
+   },
+
+   find: function(arr, callback, searchVal) {   
+    let ret = "";
+    for(var i = 0; i < arr.length; i++) {
+        if (callback(arr[1], searchVal)){
+            ret = searchVal + " was found in position " + i
+        }
+    }
+    return ret
+   },
+
+   filter: function(arr, callback) { 
+     let newArr = []
+     for(var i = 0; i < arr.length; i++){
+        if(callback(arr[i])){
+            newArr.push(arr[i])
+        }
+     }
+     return newArr
+   },
+   reject: function(arr, callback) { 
+     let newArr = []
+     for(var i = 0; i < arr.length; i++){
+        if(!callback(arr[i])){
+            newArr.push(arr[i])
+        }
+     }
+     return newArr
+   }
+ }
+// you just created a library with 5 methods!
+
+
+var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+console.log(evens); // if things are working right, this will return [2,4,6].
+
+console.log(_.reduce([1, 5, 8, 2, 3], function(num, num2){return num + num2;}));
+
+let val = 4;
+console.log(_.find([1, 4, 2, 6, 5, 3], function(val1, val2){ return val1 == val2 }, val));
+console.log(_.reject([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; }));
+console.log(_.map([1, 2, 3, 4, 5, 6], function(num){ return num * 2; }));
+
+
+</script>   
+</body>
+</html>
