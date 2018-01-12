@@ -3,13 +3,36 @@
 <button id="subButton" type="button" onclick="requestData()">click here</button>
 <div id=dispName></div>
 <script src="./jquery-3.2.1.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 
 
 //function getGit() {
 //    $.get("https://api.github.com/users/cyberserfer", displayName)
+document.getElementById("subButton").addEventListener('click', (e) => {
+  const promise = axios.get('https://api.github.com/users/cyberserfer')
 
+  promise.then(data => {
+    const name = data.data.name;
+    document.getElementById("dispName").innerHTML = name;
+  })
 
+    promise.catch(err =>{
+      console.log(err);
+    })
+
+function getValue(value){
+  return new Promise((resolve, reject) =>{
+    setTimout(() +> {
+      resolve("From Promise" + value)
+//      reject(new Error("Something badhappened"))
+    }, 2000)
+  })
+}
+
+})
+
+/*
 function requestData(){
   console.log('running');
   let data = "empty";
@@ -37,7 +60,7 @@ function requestData(){
 
     console.log('end');
 }
-
+*/
 
 </script>   
 </body>
