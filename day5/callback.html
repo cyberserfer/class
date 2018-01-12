@@ -1,0 +1,27 @@
+<html>
+<body>
+    
+<script>
+    
+function saySomething(something){
+  console.log(something);
+}
+
+function greet(name, callback){
+const greeting = "hello " + name;
+
+ // return greeting;
+}
+
+function express(num, otherNum, callback){
+//  return num + otherNum;
+  callback(num + otherNum)
+}
+
+express(1, 2, saySomething);
+//greet(bob, saySomething);
+
+
+</script>   
+</body>
+</html>

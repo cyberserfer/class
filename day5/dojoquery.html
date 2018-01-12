@@ -1,0 +1,55 @@
+<html>
+<body>
+    
+<script>
+
+// uncommenting this will cause the code to fail
+//DojoQuery("someIdForSomeButton").click(function() { console.log("The button was clicked!") });
+//DojoQuery("someOtherIdForSomeOtherButton").hover(function() { console.log("The button was hovered on!") });
+
+/*
+Funciton called Dojo that takes an id
+Dojo function returns an object that has the click and hover method
+click and hover register Event Listeners for the object that is returned by the 
+
+*/
+
+(function(global){
+
+
+
+class MyDojoElement {
+  constructor(htmlElement){
+    this.htmlElement = htmlElement;
+
+  }
+
+  onclick(callback){
+    this.htmlElement.addEventListener('click', callback);
+  }
+
+  hover(callback){
+    this.htmlElement.addEventListener('hover', callback);
+  }
+}
+
+/*
+  takes an id, return ____ object
+
+  @params id - type String
+*/
+
+function DojoQuery(id) {
+  new MyDojoElement (document.getElementById(id));
+  return
+}
+
+// this is the property that is being referenced on the window/page i.e.; id=DojoQuery on an element
+
+  global.DojoQuery = DojoQuery;
+
+}(window))
+
+</script>   
+</body>
+</html>
