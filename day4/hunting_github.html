@@ -1,0 +1,39 @@
+<html>
+<body>
+<button id="subButton" type="button" onclick="getGit()">click here</button>
+<div id=dispName></div>
+<script src="./jquery-3.2.1.js"></script>
+<script>
+
+
+function getGit() {
+    $.get("https://api.github.com/users/cyberserfer", displayName)
+    // Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+
+/*
+    console.log('running');
+  //creates promise
+  var data = new Promise(function(resolve,reject){
+    getStuffFromDatabase(resolve,reject); // kind of like a shiny callback
+  });
+  // if promise is successful (keeps me from putting all the logic in the callback)
+  data.then(function(data){
+    console.log(data, "ASynchronous");
+    for (var i = 0; i < data.length; i ++){
+      console.log(data[i].name);
+    }
+  });
+  data.catch(function(){
+    console.log('failure');
+  })
+  console.log('end');
+*/  
+}
+
+function displayName(data) {
+      document.getElementById("dispName").innerHTML = data.name
+    }
+
+</script>   
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<body>
+<button id="subButton" type="button" onclick="requestData()">click here</button>
+<div id=dispName></div>
+<script src="./jquery-3.2.1.js"></script>
+<script>
+
+
+//function getGit() {
+//    $.get("https://api.github.com/users/cyberserfer", displayName)
+
+
+function requestData(){
+  console.log('running');
+  let data = "empty";
+  //creates promise
+  var promise = new Promise(function(resolve,reject){
+    data =  $.get("https://api.github.com/users/cyberserfer")
+
+  if (data != "empty"){
+    console.log('not empty');
+  }
+  else {
+    reject(Error("Failed"))
+  }
+
+});
+
+    promise.then(displayName(data) {
+        document.getElementById("dispName").innerHTML = data.name;
+    },
+    function(err){
+        console.log(err);
+    });
+  
+    //promise.catch(function(){console.log('failure');})
+
+    console.log('end');
+}
+
+
+</script>   
+</body>
+</html>
