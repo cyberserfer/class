@@ -9,6 +9,22 @@
 	position: absolute;
 	left: 650px;
 	top: 50px;
+	outline: solid red;
+	height: 200px;
+	width: 150px;
+}
+
+#pokeBox{
+	border: 10px 10px 15px 10px solid red;
+	
+}
+
+#pokeLabel{
+	float: left;
+}
+
+#pokeName{
+	font-weight: bold;
 }
 
 </style>
@@ -26,12 +42,13 @@
 		<div id="imgDiv" style="width: 600px" >
 		</div>
 		<aside id="pokeInfo">
-			<div id=pokeImg> </div>
-			<div id=pokeName> </div>
-			<div>Type: <div id=pokeType></div></div>
-			<div>Height: <div id=pokeHeight></div></div>
-			<div>Weight: <div id=pokeWeight></div></div>
-
+			<div id="pokeBox">
+				<div id=pokeImg> </div>
+				<div id=pokeName> </div>
+				<div id=pokeLabel> </div><div id=pokeType></div>
+				<div id=pokeLabel></div><div id=pokeHeight></div>
+				<div id=pokeLabel></div></div><div id=pokeWeight>
+			</div>
 		</aside>
 	</article>
 </main>

@@ -14,10 +14,10 @@ function dataLoad(e) {const promise = axios.get('https://pokeapi.co/api/v2/pokem
     console.log(type)
     console.log(ret)
     document.getElementById("pokeImg").innerHTML = img;
-    document.getElementById("pokeName").innerHTML = name;
-    document.getElementById("pokeHeight").innerHTML = height;
-    document.getElementById("pokeWeight").innerHTML = weight;
-    document.getElementById("pokeType").innerHTML = type;
+    document.getElementById("pokeName").innerHTML = name.toUpperCase();
+    document.getElementById("pokeHeight").innerHTML = "Height: " + height;
+    document.getElementById("pokeWeight").innerHTML = "Weight: " + weight;
+    document.getElementById("pokeType").innerHTML = "Type: " + type;
   })
 
     promise.catch(err =>{
