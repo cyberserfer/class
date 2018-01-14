@@ -36,8 +36,6 @@ function dataLoad(e) {const promise = axios.get('https://pokeapi.co/api/v2/pokem
 
 function pageLoad() {
 
-  //let counter = 1;
-
   for (let i = 1; i <= 151; i++) {
 
     let imgDiv = document.getElementById("imgDiv");

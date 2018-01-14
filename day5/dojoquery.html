@@ -1,26 +1,39 @@
 <html>
 <body>
-    <button id="myButton"> push me </button>
-
-    <div id="myPlace"></div>
-
+    <button id="1"> push me </button>
+    <div id="myPlace1"></div>
+    <button id="2"> push me </button>
+    <div id="myPlace2"></div>
  
 <script>
-
-// uncommenting this will cause the code to fail
-// $Dojo("myButton").click(function() { console.log("The button was clicked!") });
-// $Dojo("someOtherIdForSomeOtherButton").hover(function() { console.log("The button was hovered on!") });
 
 /*
 Funciton called Dojo that takes an id
 Dojo function returns an object that has the click and hover method
 click and hover register Event Listeners for the object that is returned by the 
-
 */
 
 function putText(){
-  document.getElementById("myPlace").innerHTML = "The button has been pushed."
+  let num = this.id;
+  console.log("value of id: " + num)
+  document.getElementById("myPlace" + num).innerHTML = "The button has been pushed."
 }
+
+function mouseIn(){
+  let num = this.id;
+  document.getElementById(num).mouseover = () => {
+    document.body.style.color = "blue";
+    console.log("what is going on: ")
+  }
+}
+
+function mouseOut(){
+  let num = this.id;
+  document.getElementById(num).mouseleave = () => {
+    document.body.style.color = "green";
+  }
+}
+
 
 (function(global){
   class MyDojoElement {
@@ -33,21 +46,21 @@ function putText(){
       console.log("click has been clicked")
     }
 
-    hover(){
-      
+    hover(inFunc, outFunc){
+      this.htmlElement.addEventListener('mouseover', inFunc);
+      this.htmlElement.addEventListener('mouseleave', outFunc);
     }
   }
-
+  
+  
 /*
   takes an id, return MyDojoElement object
-
   @params id - type String
 */
 
-function DojoQuery(id) {
-  return new MyDojoElement (document.getElementById(id));
-  
-}
+  function DojoQuery(id) {
+    return new MyDojoElement (document.getElementById(id));
+  }
 
 // this is the property that is being referenced on the window/page i.e.; id=DojoQuery on an element
 //  global.DojoQuery = DojoQuery; // this was the original line
@@ -55,8 +68,15 @@ function DojoQuery(id) {
 
 }(window))
 
-$Dojo("myButton").click(putText);
-//$Dojo("myButton2").click(putText("myPlace2"));
+console.log("init val of id: " + this.id);
+const first = $Dojo("1");
+const second = $Dojo("2");
+
+
+first.click(putText);
+second.click(putText);
+first.hover(mouseIn, mouseOut);
+second.hover(mouseIn, mouseOut);
 
 </script>   
 </body>
