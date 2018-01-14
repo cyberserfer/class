@@ -1,35 +1,6 @@
 
 
-function dataLoad(e) {
-  const promise = axios.get('https://anapioficeandfire.com/api/houses/'+e.toElement.id+'/')
 
-  promise.then(data => {
-    const ret = data.data;
-    const name = ret.name;
-    const words = ret.words;
-    const titles = ret.titles;
- //   const type = ret.types[0].type.name;
-  
-    console.log(ret)
-    document.getElementById("houseName").innerHTML = "Name: " + name;
-    document.getElementById("houseWords").innerHTML = "Words: " + words;
-    document.getElementById("houseTitles").innerHTML = "Titles: " + titles;
-
-  })
-
-    promise.catch(err =>{
-      console.log(err);
-    })
-
-  function getValue(value){
-    return new Promise((resolve, reject) =>{
-      setTimout(() => {
-        resolve("From Promise" + value)
-  //      reject(new Error("Something badhappened"))
-      }, 2000)
-    })
-  }
-}
 /*
 function putText(){
   let num = this.id;
@@ -83,6 +54,37 @@ function addListeners(){
     document.getElementById(houseNum[i]).addEventListener('click', dataLoad);
     console.log("log 1: " + houseNum[i]);
   }
+
+  function dataLoad(e) {
+  const promise = axios.get('https://anapioficeandfire.com/api/houses/'+e.toElement.id+'/')
+
+  promise.then(data => {
+    const ret = data.data;
+    const name = ret.name;
+    const words = ret.words;
+    const titles = ret.titles;
+ //   const type = ret.types[0].type.name;
+  
+    console.log(ret)
+    document.getElementById("houseName").innerHTML = "Name: " + name;
+    document.getElementById("houseWords").innerHTML = "Words: " + words;
+    document.getElementById("houseTitles").innerHTML = "Titles: " + titles;
+
+  })
+
+    promise.catch(err =>{
+      console.log(err);
+    })
+
+  function getValue(value){
+    return new Promise((resolve, reject) =>{
+      setTimout(() => {
+        resolve("From Promise" + value)
+  //      reject(new Error("Something badhappened"))
+      }, 2000)
+    })
+  }
+}
 }
 
 console.log("log 3: ")
