@@ -1,11 +1,15 @@
 <html>
 <body>
-    
+    <button id="myButton"> push me </button>
+
+    <div id="myPlace"></div>
+
+ 
 <script>
 
 // uncommenting this will cause the code to fail
-//DojoQuery("someIdForSomeButton").click(function() { console.log("The button was clicked!") });
-//DojoQuery("someOtherIdForSomeOtherButton").hover(function() { console.log("The button was hovered on!") });
+// $Dojo("myButton").click(function() { console.log("The button was clicked!") });
+// $Dojo("someOtherIdForSomeOtherButton").hover(function() { console.log("The button was hovered on!") });
 
 /*
 Funciton called Dojo that takes an id
@@ -14,41 +18,45 @@ click and hover register Event Listeners for the object that is returned by the
 
 */
 
-(function(global){
-
-
-
-class MyDojoElement {
-  constructor(htmlElement){
-    this.htmlElement = htmlElement;
-
-  }
-
-  onclick(callback){
-    this.htmlElement.addEventListener('click', callback);
-  }
-
-  hover(callback){
-    this.htmlElement.addEventListener('hover', callback);
-  }
+function putText(){
+  document.getElementById("myPlace").innerHTML = "The button has been pushed."
 }
 
+(function(global){
+  class MyDojoElement {
+    constructor(htmlElement){
+      this.htmlElement = htmlElement;
+    }
+
+    click(callback){
+      this.htmlElement.addEventListener('click', callback);
+      console.log("click has been clicked")
+    }
+
+    hover(){
+      
+    }
+  }
+
 /*
-  takes an id, return ____ object
+  takes an id, return MyDojoElement object
 
   @params id - type String
 */
 
 function DojoQuery(id) {
-  new MyDojoElement (document.getElementById(id));
-  return
+  return new MyDojoElement (document.getElementById(id));
+  
 }
 
 // this is the property that is being referenced on the window/page i.e.; id=DojoQuery on an element
-
-  global.DojoQuery = DojoQuery;
+//  global.DojoQuery = DojoQuery; // this was the original line
+  global.$Dojo = DojoQuery;
 
 }(window))
+
+$Dojo("myButton").click(putText);
+//$Dojo("myButton2").click(putText("myPlace2"));
 
 </script>   
 </body>

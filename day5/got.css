@@ -1,0 +1,46 @@
+.gotBanner{
+	font: 2em bold;
+}
+
+.houseImgs > img{
+	height: 100px;
+	width: 150px;
+	float: left;
+	padding: 10px;
+}
+
+.centerCont{
+	clear: both;
+	width: 680px;
+	padding-top: 20px;
+}
+
+.hInfoBox{
+	clear: both;
+	border: solid black;
+	height: 300px;
+	width: 400px;
+	margin: 0 auto;
+}
+
+.hInfoTitle{
+	clear:both ;
+	width: 100px;
+	margin-top: -11px;
+	margin-left: 20px;
+	background: white;
+	text-align: center;
+}
+
+#houseName{
+	
+
+}
+
+#houseWords{
+
+}
+
+#houseTitles{
+
+}
