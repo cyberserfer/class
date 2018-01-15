@@ -1,0 +1,27 @@
+.wBanner{
+	font: 2em bold;
+}
+
+.centerCont{
+	clear: both;
+	width: 680px;
+	padding-top: 20px;
+}
+
+.wInfoBox{
+	clear: both;
+	border: solid black;
+	height: 300px;
+	width: 400px;
+	margin: 0 auto;
+}
+
+#city{
+	margin-left: 10px;
+	margin-bottom: 15px;
+}
+
+#temp{
+	margin-left: 10px;
+	margin-bottom: 15px;
+}

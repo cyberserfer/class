@@ -1,4 +1,9 @@
 <html>
+<style type="text/css">
+  button{
+    background: green;
+  }
+</style>
 <body>
     <button id="1"> push me </button>
     <div id="myPlace1"></div>
@@ -21,15 +26,15 @@ function putText(){
 
 function mouseIn(){
   let num = this.id;
-  document.getElementById(num).mouseover = () => {
-    document.body.style.color = "blue";
+  document.getElementById(num).onmouseover = () => {
+    document.getElementById(num).style.backgroundcolor = "blue";
     console.log("what is going on: ")
   }
 }
 
 function mouseOut(){
   let num = this.id;
-  document.getElementById(num).mouseleave = () => {
+  document.getElementById(num).onmouseout = () => {
     document.body.style.color = "green";
   }
 }
@@ -48,7 +53,7 @@ function mouseOut(){
 
     hover(inFunc, outFunc){
       this.htmlElement.addEventListener('mouseover', inFunc);
-      this.htmlElement.addEventListener('mouseleave', outFunc);
+      this.htmlElement.addEventListener('mouseout', outFunc);
     }
   }
   

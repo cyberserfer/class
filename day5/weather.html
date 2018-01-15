@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./weather.js"></script>
+<link rel="stylesheet" type="text/css" href="weather.css">
+<head>
+	<title>Get the Weather</title>
+</head>
+<body>
+	<header>
+		<div class="wBanner">Get the Weather</div>
+	</header>
+	<main>
+		<div class="entryLine">
+			<input type="text" name="entryField" id="entField" />
+			<button type="button" id="entButton"> Search Weather </button>
+			
+		</div>
+		<div class="centerCont">
+			<div class="wInfoBox">
+				<div id="city"></div>
+				<div id="temp"></div>
+
+			</div>
+		</div>
+	</main>
+
+</body>
+</html>
