@@ -2,6 +2,10 @@
 	font: 2em bold;
 }
 
+.unitType > {
+	float: left;
+}
+
 .centerCont{
 	clear: both;
 	width: 680px;
@@ -10,13 +14,12 @@
 
 .wInfoBox{
 	clear: both;
-	border: solid black;
 	height: 300px;
 	width: 400px;
-	margin: 0 auto;
 }
 
 #city{
+	font-size: x-large;
 	margin-left: 10px;
 	margin-bottom: 15px;
 }
@@ -25,3 +28,4 @@
 	margin-left: 10px;
 	margin-bottom: 15px;
 }
+
