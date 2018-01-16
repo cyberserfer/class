@@ -2,10 +2,6 @@
 	font: 2em bold;
 }
 
-.unitType > {
-	float: left;
-}
-
 .centerCont{
 	clear: both;
 	width: 680px;
@@ -13,7 +9,7 @@
 }
 
 .wInfoBox{
-	clear: both;
+	margin-top: 15px;
 	height: 300px;
 	width: 400px;
 }
@@ -24,7 +20,20 @@
 	margin-bottom: 15px;
 }
 
+#precip{
+	float: left;
+	margin-left: 10px;
+	margin-top: 15px;
+}
+
+#precipicon{
+	float: left;
+	margin-left: 5px;
+	margin-bottom: 10px;
+}
+
 #temp{
+	clear: both;
 	margin-left: 10px;
 	margin-bottom: 15px;
 }

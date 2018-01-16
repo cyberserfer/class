@@ -12,20 +12,23 @@
 	</header>
 	<main>
 		<div>
-			<div class=unitType><input type="radio" name="corf" value="faren" checked class=unitType> Farenheit</div>
-  			<div class=unitType><input type="radio" name="corf" value="cel" class=unitType>  Celsius</div>
+			<p>Choose unit type:
+			<input type="radio" name="corf" value="faren" checked> Farenheit
+  			<input type="radio" name="corf" value="cel">  Celsius
+  			</p>
 		</div>
 		<div class="entryLine">
 			<input type="text" name="entryField" id="entField" />
 			<button type="button" id="entButton"> Search Weather </button>
 			
 		</div>
-		<div class="centerCont">
-			<div class="wInfoBox">
-				<div id="city"></div>
-				<div id="temp"></div>
-
+		<div class="wInfoBox">
+			<div id="city"></div>
+			<div>
+				<div id="precip"></div>
+				<div id="precipicon"></div>
 			</div>
+			<div id="temp"></div>
 		</div>
 	</main>
 
