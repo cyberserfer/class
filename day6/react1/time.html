@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="node_modules/react/umd/react.development.js"></script>
+	<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+	<script src="http://www.datejs.com/build/date.js"></script>
+	
+</head>
+<body>
+	<div id="time"></div>
+
+	<script>
+
+		//const Greeting = React.createElement("h1", null, ["hello world"]);
+		//ReactDOM.render(Greeting, document.getElementById("root"));
+		function everySec(){
+			setTimeout("everySec()", 1000);
+			document.getElementById('time').innerHTML = "This is the time: " + new Date().toString("hh:mm:ss tt");
+		}
+
+		
+window.onload = everySec;
+	</script>
+
+</body>
+</html>
