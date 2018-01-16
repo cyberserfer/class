@@ -1,7 +1,7 @@
 <html>
 <style type="text/css">
   button{
-    background: green;
+    background: #d3ffe0;
   }
 </style>
 <body>
@@ -12,33 +12,20 @@
  
 <script>
 
-/*
-Funciton called Dojo that takes an id
-Dojo function returns an object that has the click and hover method
-click and hover register Event Listeners for the object that is returned by the 
-*/
-
 function putText(){
   let num = this.id;
-  console.log("value of id: " + num)
   document.getElementById("myPlace" + num).innerHTML = "The button has been pushed."
 }
 
 function mouseIn(){
   let num = this.id;
-  document.getElementById(num).onmouseover = () => {
-    document.getElementById(num).style.backgroundColor = "blue";
-    console.log("what is going on: ")
-  }
+  document.getElementById(num).style.backgroundColor = "#96caff";
 }
 
 function mouseOut(){
   let num = this.id;
-  document.getElementById(num).onmouseout = () => {
-    document.body.style.color = "green";
-  }
+  document.getElementById(num).style.backgroundColor = "#d3ffe0";
 }
-
 
 (function(global){
   class MyDojoElement {
@@ -48,7 +35,6 @@ function mouseOut(){
 
     click(callback){
       this.htmlElement.addEventListener('click', callback);
-      console.log("click has been clicked")
     }
 
     hover(inFunc, outFunc){
@@ -56,27 +42,19 @@ function mouseOut(){
       this.htmlElement.addEventListener('mouseout', outFunc);
     }
   }
-  
-  
-/*
-  takes an id, return MyDojoElement object
-  @params id - type String
-*/
+
 
   function DojoQuery(id) {
     return new MyDojoElement (document.getElementById(id));
   }
 
-// this is the property that is being referenced on the window/page i.e.; id=DojoQuery on an element
-//  global.DojoQuery = DojoQuery; // this was the original line
   global.$Dojo = DojoQuery;
 
 }(window))
 
-console.log("init val of id: " + this.id);
+
 const first = $Dojo("1");
 const second = $Dojo("2");
-
 
 first.click(putText);
 second.click(putText);
