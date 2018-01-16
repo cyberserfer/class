@@ -64,7 +64,7 @@ function dataLoad() {
   })
 
   promise.catch(err =>{
-    document.getElementById("city").innerHTML = "an error occurred";
+    document.getElementById("city").innerHTML = "An error occurred <br> Please try again";
     document.getElementById("temp").innerHTML = "";
   })
 }
