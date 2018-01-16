@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="node_modules/react/umd/react.development.js"></script>
+	<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+	
+</head>
+<body>
+	<div id="app"></div>
+
+	<script>
+
+	let liItem = ["Learn React", "Climb Mt Everest", "Run a marathon", "Feed the dogs"]
+
+
+	const container =
+	 React.createElement('div', {},
+		React.createElement('h1', null, "Hello Dojo!"),
+		React.createElement('h2', null, "Things I need to do: "),
+		React.createElement('ul', null, 
+			liItem.map((item, index) => React.createElement('li', {key:index}, item))
+		)
+	);
+		
+	ReactDOM.render(container, document.getElementById('app'));
+
+	</script>
+</body>
+</html>
