@@ -20,9 +20,9 @@ function dataLoad() {
   let radioVal = document.getElementsByName("corf");
   let tempVal = checkRadio(radioVal);
   let tempUnit = "";
-  console.log("value of tempVal: " + tempVal);
+
   tempVal === "faren" ? tempUnit = "imperial" : tempUnit = "metric"
-    console.log("value of tempUnit: " + tempUnit);
+
   let promise = axios.get('http://api.openweathermap.org/data/2.5/weather?q='+ cityVal +'&APPID=9517a7bd6e078b6befc28058a4557f37&units=' + tempUnit)
 
   promise.then(data => {
