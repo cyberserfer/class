@@ -7,9 +7,7 @@ function dataLoad(e) {
     const name = ret.name;
     const words = ret.words;
     const titles = ret.titles;
- //   const type = ret.types[0].type.name;
   
-    console.log(ret)
     document.getElementById("houseName").innerHTML = "Name: " + name;
     document.getElementById("houseWords").innerHTML = "Words: " + words;
     document.getElementById("houseTitles").innerHTML = "Titles: " + titles;
@@ -19,7 +17,7 @@ function dataLoad(e) {
     promise.catch(err =>{
       console.log(err);
     })
-
+/*
   function getValue(value){
     return new Promise((resolve, reject) =>{
       setTimout(() => {
@@ -28,6 +26,7 @@ function dataLoad(e) {
       }, 2000)
     })
   }
+  */
 }
 
 /*
@@ -75,7 +74,6 @@ lannister.click(dataLoad);
 baratheon.click(dataLoad);
 */
 
-console.log("log 2: ")
 
 function addListeners(){
  /* let houseNum = [362, 378, 230, 15];
@@ -90,12 +88,9 @@ function addListeners(){
 
 }
 
-
-console.log("log 3: ")
-
 window.onload = addListeners;
 
-console.log("log 4: ")
+
 
 
 

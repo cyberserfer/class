@@ -23,15 +23,6 @@ function dataLoad(e) {const promise = axios.get('https://pokeapi.co/api/v2/pokem
     promise.catch(err =>{
       console.log(err);
     })
-
-  function getValue(value){
-    return new Promise((resolve, reject) =>{
-      setTimout(() => {
-        resolve("From Promise" + value)
-  //      reject(new Error("Something badhappened"))
-      }, 2000)
-    })
-  }
 }
 
 function pageLoad() {
