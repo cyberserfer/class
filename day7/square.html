@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="node_modules/react/umd/react.development.js"></script>
+	<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+	
+</head>
+<body>
+	<div id="app"></div>
+
+	<script>
+
+	
+	let sqone = {
+		style:{
+			backgroundColor: "blue", 
+			height: "200px",
+			width: "200px",
+			float: "left",
+			font: "2em bold",
+			color: "white"
+
+		}
+	}
+	
+	let sqtwo = {
+		style: {
+			backgroundColor: "red", 
+			height: "200px",
+			width: "200px",
+			float: "left",
+			font: "2em bold",
+			color: "blue"
+		}
+	} 
+	
+	let sqthree = {
+		style: {
+			backgroundColor: "pink",
+			height: "200px",
+			width: "200px",
+			float: "left",
+			font: "2em bold",
+			color: "green"
+		}
+	}
+
+//React.createElement('h2', {id: cloud}, "Things I need to do: ") this will assign an id to the tag
+
+	const container =
+	 React.createElement('div', {},
+		React.createElement('div', {id: "square1",  style: sqone.style}, "white on blue"),
+		React.createElement('div', {id: "square2",  style: sqtwo.style}, "blue on red"),
+		React.createElement('div', {id: "square3",  style: sqthree.style}, "green on pink")
+	);
+		
+	ReactDOM.render(container, document.getElementById('app'));
+
+	</script>
+</body>
+</html>
