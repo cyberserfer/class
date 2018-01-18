@@ -12,8 +12,12 @@
 <body>
   <div id="anchor"></div>
   <script type="text/babel">
-    const pageContainer = {
-
+    const pageTitle = {
+		color: 'black',
+		display: 'flex',
+		fontSize: '4em',
+		justifyContent: 'center',
+		alignItems: 'center'
     };
     const styleObject = {
 		borderStyle: 'solid',
@@ -79,10 +83,12 @@
 	}
 
     function Circle(props) {
-      // return React.createElement('div', {style: styleObject}, 'Hello');
+      
+
       return (
 
-	        <div style={pageContainer}>
+	        <div>
+	   			<div style={pageTitle}>Vote Your JS Library</div>
 		        <div style={styleObject}>
 		        	<div style={circleContainer}>
 		        		<div style={circleObject}></div>
