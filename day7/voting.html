@@ -73,6 +73,11 @@
 		alignItems: 'center'
 	}
 
+
+	function sendAlert(e){
+		window.alert("thanks for voting")
+	}
+
     function Circle(props) {
       // return React.createElement('div', {style: styleObject}, 'Hello');
       return (
@@ -87,7 +92,7 @@
 		          		<div style={containerTitle}>React</div>
 		          	</div>
 		          	<div style={plusContainer}>
-		          		<div style={plusButton}>+</div>
+		          		<div name="button" id="reactplus" style={plusButton} onClick={sendAlert}>+</div>
 		          	</div>
 		        </div>
 		        <div style={styleObject}>
@@ -99,7 +104,7 @@
 		        		<div style={containerTitle}>Vue</div>
 		        	</div>
 		          	<div style={plusContainer}>
-		          		<div style={plusButton}>+</div>
+		          		<div name="button" id="vueplus" style={plusButton} onClick={sendAlert}>+</div>
 		          	</div>
 		        </div>
 		        <div style={styleObject}>
@@ -111,7 +116,7 @@
 		        		<div style={containerTitle}>Angular</div>
 		        	</div>
 		          	<div style={plusContainer}>
-		          		<div style={plusButton}>+</div>
+		          		<div name="button" id="angularplus" style={plusButton} onClick={sendAlert}>+</div>
 		          	</div>
 		        </div>
 		        <div style={styleObject}>
@@ -123,7 +128,7 @@
 		        		<div style={containerTitle}>Ember</div>
 		        	</div>
 		          	<div style={plusContainer}>
-		          		<div style={plusButton}>+</div>
+		          		<div name="button" id="emberplus" style={plusButton} onClick={sendAlert}>+</div>
 		          	</div>
 		        </div>
 	    	</div>
