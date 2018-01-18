@@ -18,20 +18,21 @@
 	<div id="app"></div>
 
 	<script>
+		document.getElementById("subButton").addEventListener('input', Drawpage);
 		
-		document.getElementById("subButton").addEventListener('click', Drawpage);
-
 		var styles = {
 			  row: {height: '20px'},
 			  cell1: {height: '20px', width: '20px', display:'inline-block', backgroundColor: 'red'},
 			  cell2: {height: '20px', width: '20px', display:'inline-block', backgroundColor: 'black'}
 		}
 
-		function Drawpage(e){
+		function Drawpage(){
 			let inVal = document.getElementById("inNumber").value;
-			// let colorVal1 = document.getElementById("color1").value;
-			// let colorVal2 = document.getElementById("color2").value;
+				// let colorVal1 = document.getElementById("color1").value;
+				// let colorVal2 = document.getElementById("color2").value;
 			ReactDOM.render(React.createElement(Board, {num: inVal}), document.getElementById('app'))
+			//document.getElementById("subButton").addEventListener('click', (e) => const size = e.target.value)
+			//ReactDOM.render(React.createElement(Board, {num: size}), document.getElementById('app'))
 		}
 
 

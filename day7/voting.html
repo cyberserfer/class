@@ -12,50 +12,121 @@
 <body>
   <div id="anchor"></div>
   <script type="text/babel">
+    const pageContainer = {
+
+    };
     const styleObject = {
-      borderStyle: 'solid',
-      borderWidth: '5px',
-      height: '100px',
-      width: '250px',
-      backgroundColor: '#06d',
-      color: 'black',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
+		borderStyle: 'solid',
+		borderWidth: '2px',
+		height: '100px',
+		width: '250px',
+		color: 'black',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		margin: '0 auto'
+    };
+    const circleContainer = {
+		color: 'black',
+		width: '50px',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center'
     };
 
-    // const toRender = React.createElement('div', {style: styleObject}, 'Hello');
-
-    const thingsIHaveToDo = [
-      'Learn React',
-      'Climb Mt. Everest',
-      'Wash the dog',
-      'Code code code'
-    ];
+    const circleObject = {
+		borderStyle: 'solid',
+		borderWidth: '2px',
+		borderRadius: '50%',
+		height: '40px',
+		width: '40px',
+		color: 'black',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		position: 'absolute'
+    };
+    const circleNumber = {
+		color: 'black',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		position: 'absolute'
+    };
+    const containerTitle = {
+    	width: '140px',
+    	color: 'black',
+    	fontSize: '2em',
+    	display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center'
+	}
+	const plusContainer = {
+    	width: '50px',
+    	alignItems: 'center'
+	}
+    const plusButton = {
+    	color: 'green',
+    	fontSize: '3em',
+    	display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center'
+	}
 
     function Circle(props) {
       // return React.createElement('div', {style: styleObject}, 'Hello');
       return (
-        <div>
-	        <div style={styleObject}>
-	          Hello
-	          <p>From the brilliant minds of <a href="https://facebook.github.io">Facebook</a></p>
-	          <ul>
-	            {thingsIHaveToDo.map((thing, idx) => {
-	              return <li key={idx}>{thing}</li>
-	            })}  
-	          </ul>
-	        </div>
-	        <div style={styleObject}>
 
-	        </div>
-	        <div style={styleObject}>
-
-	        </div>
-	        <div style={styleObject}>
-
-	        </div>
-    	</div>
+	        <div style={pageContainer}>
+		        <div style={styleObject}>
+		        	<div style={circleContainer}>
+		        		<div style={circleObject}></div>
+		        		<div style={circleNumber}>5</div>
+		        	</div>
+		          	<div>
+		          		<div style={containerTitle}>React</div>
+		          	</div>
+		          	<div style={plusContainer}>
+		          		<div style={plusButton}>+</div>
+		          	</div>
+		        </div>
+		        <div style={styleObject}>
+		        	<div style={circleContainer}>
+		        		<div style={circleObject}></div>
+		        		<div style={circleNumber}>5</div>
+		        	</div>
+		        	<div>
+		        		<div style={containerTitle}>Vue</div>
+		        	</div>
+		          	<div style={plusContainer}>
+		          		<div style={plusButton}>+</div>
+		          	</div>
+		        </div>
+		        <div style={styleObject}>
+		        	<div style={circleContainer}>
+		        		<div style={circleObject}></div>
+		        		<div style={circleNumber}>5</div>
+		        	</div>
+		        	<div>
+		        		<div style={containerTitle}>Angular</div>
+		        	</div>
+		          	<div style={plusContainer}>
+		          		<div style={plusButton}>+</div>
+		          	</div>
+		        </div>
+		        <div style={styleObject}>
+		        	<div style={circleContainer}>
+		        		<div style={circleObject}></div>
+		        		<div style={circleNumber}>5</div>
+		        	</div>
+		        	<div>
+		        		<div style={containerTitle}>Ember</div>
+		        	</div>
+		          	<div style={plusContainer}>
+		          		<div style={plusButton}>+</div>
+		          	</div>
+		        </div>
+	    	</div>
       )
     }
 
