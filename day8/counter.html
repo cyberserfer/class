@@ -68,13 +68,11 @@
     }
 
     render() {
-      const { name } = this.props;
       const { counter } = this.state;
       return (
         <div>
             <div className="infoBox">
-            <div>{name}</div>
-              <h1 className="numCont">{counter}</h1>
+              <div className="numCont">{counter}</div>
               <div className="buttonCont">
                 <input type= "button" value="Increment" onClick={() => this.increment()} />
                 <input type= "button" value="Decrement" onClick={() => this.decrement()} />
