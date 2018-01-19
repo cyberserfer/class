@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Stateful Component Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="node_modules/react/umd/react.development.js"></script>
+  <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.js" crossorigin></script>
+</head>
+<body>
+  <div id="anchor"></div>
+
+  <script type="text/babel">
+
+    
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          counterList: [0]
+        }
+      }
+      addCounterBlock() {
+        const { counterList } = this.state;
+        this.setState({
+          counterList: [...counterList, 1]
+        })
+      }
+    render() {
+      const { counterList } = this.state;
+      const counterMap = counterList.map(item => <CounterBlock key={item.id} />)
+      return (
+        <div>
+        <input type= "button" value="add counter" onClick={() => this.addCounterBlock()} />
+        {counterMap}
+        </div>) 
+    }
+  }
+
+  class CounterBlock extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+          counter: 0,
+      }
+    }
+
+    increment() {
+      const { counter } = this.state;
+      this.setState({
+        counter: counter + 1
+      })
+    }
+
+    decrement() {
+      const { counter } = this.state;
+      this.setState({
+        counter: counter - 1
+      })
+    }
+
+    render() {
+      const { counter } = this.state;
+      return (
+        <div>
+            
+            <div className="infoBox">
+              <div className="numCont">{counter}</div>
+              <div className="buttonCont">
+                <input type= "button" value="Increment" onClick={() => this.increment()} />
+                <input type= "button" value="Decrement" onClick={() => this.decrement()} />
+              </div>
+            </div>
+
+        </div>
+      )
+    }
+  }
+
+
+  ReactDOM.render(<App />, document.getElementById('anchor'));
+  </script>
+</body>
+</html>
