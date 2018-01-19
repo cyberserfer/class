@@ -20,18 +20,22 @@
       constructor(props) {
         super(props);
         this.state = {
-          counterList: [0]
+          counterList: [0],
+          counters: 1
         }
       }
       addCounterBlock() {
-        const { counterList } = this.state;
+        const { counterList, counters } = this.state;
         this.setState({
-          counterList: [...counterList, 1]
+          counterList: [...counterList, counters],
+          counters: counters + 1
         })
       }
+
     render() {
       const { counterList } = this.state;
-      const counterMap = counterList.map(item => <CounterBlock key={item.id} />)
+      const counterMap = counterList.map(item => <CounterBlock key={item} name={item} />)
+      console.log(counterMap)
       return (
         <div>
         <input type= "button" value="add counter" onClick={() => this.addCounterBlock()} />
@@ -64,12 +68,13 @@
     }
 
     render() {
+      const { name } = this.props;
       const { counter } = this.state;
       return (
         <div>
-            
             <div className="infoBox">
-              <div className="numCont">{counter}</div>
+            <div>{name}</div>
+              <h1 className="numCont">{counter}</h1>
               <div className="buttonCont">
                 <input type= "button" value="Increment" onClick={() => this.increment()} />
                 <input type= "button" value="Decrement" onClick={() => this.decrement()} />
