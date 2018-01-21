@@ -38,11 +38,10 @@ class App extends Component {
 
     this.state = {
       cans:[
-        {id: 0, lib: 'React', votes: 5},
-        {id: 1, lib: 'Veu', votes: 8},
-        {id: 2, lib: 'Angular', votes: 2},
+        {id: 0, lib: 'React', votes: 0},
+        {id: 1, lib: 'Veu', votes: 0},
+        {id: 2, lib: 'Angular', votes: 0},
         {id: 3, lib: 'Ember', votes: 0}
-
       ]
       
     };
