@@ -35,7 +35,6 @@
     render() {
       const { counterList } = this.state;
       const counterMap = counterList.map(item => <CounterBlock key={item} name={item} />)
-      console.log(counterMap)
       return (
         <div>
         <input type= "button" value="add counter" onClick={() => this.addCounterBlock()} />

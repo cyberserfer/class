@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>JSX Example</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="classNamesheet" type="text/css" media="screen" href="voting.css" />
   <script src="node_modules/react/umd/react.development.js"></script>
   <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
@@ -12,134 +13,73 @@
 <body>
   <div id="anchor"></div>
   <script type="text/babel">
-    const pageTitle = {
-		color: 'black',
-		display: 'flex',
-		fontSize: '4em',
-		justifyContent: 'center',
-		alignItems: 'center'
-    };
-    const styleObject = {
-		borderStyle: 'solid',
-		borderWidth: '2px',
-		height: '100px',
-		width: '250px',
-		color: 'black',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		margin: '0 auto'
-    };
-    const circleContainer = {
-		color: 'black',
-		width: '50px',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center'
-    };
-
-    const circleObject = {
-		borderStyle: 'solid',
-		borderWidth: '2px',
-		borderRadius: '50%',
-		height: '40px',
-		width: '40px',
-		color: 'black',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		position: 'absolute'
-    };
-    const circleNumber = {
-		color: 'black',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		position: 'absolute'
-    };
-    const containerTitle = {
-    	width: '140px',
-    	color: 'black',
-    	fontSize: '2em',
-    	display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center'
-	}
-	const plusContainer = {
-    	width: '50px',
-    	alignItems: 'center'
-	}
-    const plusButton = {
-    	color: 'green',
-    	fontSize: '3em',
-    	display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center'
-	}
-
 
 	function sendAlert(e){
 		window.alert("thanks for voting")
 	}
 
-    const Circle = (props) => {
-      const { something } = props
+	const Circle = (props) => {
+		const { counters } = props
 
-      return (
+		increment() {
+			const { counter } = this.state;
+			this.setState({counter: counter + 1})
+		}
 
+	  	return (
 	        <div>
-	   			<div style={pageTitle}>Vote Your JS Library</div>
-		        <div style={styleObject}>
-		        	<div style={circleContainer}>
-		        		<div style={circleObject}></div>
-		        		<div style={circleNumber}>5</div>
+	   			<div className="pageTitle">Vote Your JS Library</div>
+		        <div className="classNameObject">
+		        	<div className="circleContainer">
+		        		<div className="circleObject"></div>
+		        		<div className="circleNumber">5</div>
 		        	</div>
 		          	<div>
-		          		<div style={containerTitle}>React</div>
+		          		<div className="containerTitle">React</div>
 		          	</div>
-		          	<div style={plusContainer}>
-		          		<div name="button" id="reactplus" style={plusButton} onClick={sendAlert}>+</div>
-		          	</div>
-		        </div>
-		        <div style={styleObject}>
-		        	<div style={circleContainer}>
-		        		<div style={circleObject}></div>
-		        		<div style={circleNumber}>5</div>
-		        	</div>
-		        	<div>
-		        		<div style={containerTitle}>Vue</div>
-		        	</div>
-		          	<div style={plusContainer}>
-		          		<div name="button" id="vueplus" style={plusButton} onClick={sendAlert}>+</div>
+		          	<div className="plusContainer">
+		          		<div name="button" id="reactplus" className="plusButton" onClick={sendAlert}>+</div>
 		          	</div>
 		        </div>
-		        <div style={styleObject}>
-		        	<div style={circleContainer}>
-		        		<div style={circleObject}></div>
-		        		<div style={circleNumber}>5</div>
+		        <div className="classNameObject">
+		        	<div className="circleContainer">
+		        		<div className="circleObject"></div>
+		        		<div className="circleNumber">8</div>
 		        	</div>
-		        	<div>
-		        		<div style={containerTitle}>Angular</div>
-		        	</div>
-		          	<div style={plusContainer}>
-		          		<div name="button" id="angularplus" style={plusButton} onClick={sendAlert}>+</div>
+		          	<div>
+		          		<div className="containerTitle">Vue</div>
+		          	</div>
+		          	<div className="plusContainer">
+		          		<div name="button" id="reactplus" className="plusButton" onClick={sendAlert}>+</div>
 		          	</div>
 		        </div>
-		        <div style={styleObject}>
-		        	<div style={circleContainer}>
-		        		<div style={circleObject}></div>
-		        		<div style={circleNumber}>5</div>
+		        <div className="classNameObject">
+		        	<div className="circleContainer">
+		        		<div className="circleObject"></div>
+		        		<div className="circleNumber">12</div>
 		        	</div>
-		        	<div>
-		        		<div style={containerTitle}>Ember</div>
+		          	<div>
+		          		<div className="containerTitle">Angular</div>
+		          	</div>
+		          	<div className="plusContainer">
+		          		<div name="button" id="reactplus" className="plusButton" onClick={sendAlert}>+</div>
+		          	</div>
+		        </div>
+		        <div className="classNameObject">
+		        	<div className="circleContainer">
+		        		<div className="circleObject"></div>
+		        		<div className="circleNumber">3</div>
 		        	</div>
-		          	<div style={plusContainer}>
-		          		<div name="button" id="emberplus" style={plusButton} onClick={sendAlert}>+</div>
+		          	<div>
+		          		<div className="containerTitle">Ember</div>
+		          	</div>
+		          	<div className="plusContainer">
+		          		<div name="button" id="ember" className="plusButton" onClick={sendAlert}>+</div>
 		          	</div>
 		        </div>
 	    	</div>
-      )
-    }
+	  	)
+	}
 
     ReactDOM.render(<Circle />, document.getElementById('anchor'));
 

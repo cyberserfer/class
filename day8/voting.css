@@ -1,0 +1,70 @@
+.pageTitle  {
+color: black;
+display: flex;
+font-size: 4em;
+justify-content: center;
+align-items: center;
+}
+
+.styleObject  {
+border-style: solid;
+border-width: 2px;
+height: 100px;
+width: 250px;
+color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0 auto;
+}
+
+.circleContainer  {
+color: black;
+width: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.circleObject  {
+border-style: solid;
+border-width: 2px;
+border-radius: 50%;
+height: 40px;
+width: 40px;
+color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+position: absolute;
+}
+
+.circleNumber  {
+color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+position: absolute;
+}
+
+containerTitle  {
+width: 140px;
+color: black;
+font-size: 2em;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.plusContainer  {
+width: 50px;
+align-items: center;
+}
+
+.plusButton  {
+color: green;
+font-size: 3em;
+display: flex;
+justify-content: center;
+align-items: center;
+}
