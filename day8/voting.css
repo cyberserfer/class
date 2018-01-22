@@ -4,6 +4,7 @@ display: flex;
 font-size: 4em;
 justify-content: center;
 align-items: center;
+
 }
 
 .styleObject  {
@@ -47,7 +48,7 @@ align-items: center;
 position: absolute;
 }
 
-containerTitle  {
+.containerTitle  {
 width: 140px;
 color: black;
 font-size: 2em;
