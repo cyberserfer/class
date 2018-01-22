@@ -61,9 +61,9 @@ class App extends Component {
     }
 
       render() {
-          this.state.cans.sort((a, b) => (
-            b.votes - a.votes
-          ));
+        this.state.cans.sort((a, b) => (
+          b.votes - a.votes
+        ));
         const jsLibs = this.state.cans.map((cans) => (
           <VoteBlock
             key = {'lib-' + cans.id}
