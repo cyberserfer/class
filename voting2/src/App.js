@@ -29,7 +29,6 @@ class VoteBlock extends Component {
       </div>
     )
   }
-
 }
 
 class App extends Component {
@@ -59,12 +58,10 @@ class App extends Component {
         }
       });
       this.setState({cans: nextCans});
-      console.log('value of cansId ' + cansId);
-      //this.setState({  })
     }
 
       render() {
-        const cans = this.state.cans.sort((a, b) => (
+          this.state.cans.sort((a, b) => (
             b.votes - a.votes
           ));
         const jsLibs = this.state.cans.map((cans) => (
