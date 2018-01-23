@@ -140,7 +140,7 @@ class App extends Component {
     };
   }
 
-squares() {
+const Squares = (props) => {
 
     switch(this.state.boardstate) {
       case 'uninitialized':
@@ -158,7 +158,7 @@ squares() {
     }
 }
 
-footer() {
+const Footer = (props) => {
 
   switch(this.state.boardstate) {
     case 'uninitialized':
