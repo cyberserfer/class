@@ -72,7 +72,7 @@ class App extends Component {
             votes={cans.votes}
             onVote={this.handleVoteCount}
           />
-        ));
+        );
           
         return (
           <div>

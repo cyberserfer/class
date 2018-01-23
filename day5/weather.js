@@ -19,7 +19,7 @@ function dataLoad() {
   let tempUnit = "";
   tempVal === "faren" ? tempUnit = "imperial" : tempUnit = "metric"
 
-  let promise = axios.get('http://api.openweathermap.org/data/2.5/weather?q='+ cityVal +'&APPID=9517a7bd6e078b6befc28058a4557f37&units=' + tempUnit)
+  let promise = axios.get('http://api.openweathermap.org/data/2.5/weather?q='+ cityVal +'&APPID=&units=' + tempUnit)
 
   promise.then(data => {
     const ret = data.data;
