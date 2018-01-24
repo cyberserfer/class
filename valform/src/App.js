@@ -3,12 +3,29 @@ import React, { Component } from 'react';
 
 let valField = {
   style:{
-    backgroundColor: "white", 
+    fontSize: ".8em", 
     color: "red",
-
+    padding: "10px"
   }
 }
 
+let inputFieldsContainer = {
+  style:{
+    paddingLeft: "100px"
+  }
+}
+
+let inputButtonContainer = {
+  style:{
+    paddingLeft: "170px"
+  }
+}
+
+let title = {
+  style:{
+    paddingLeft: "70px"
+  }
+}
 
 class App extends Component {
   constructor(props) {
@@ -63,22 +80,27 @@ class App extends Component {
     return (
       <div>
        {this.state.formDisplay ? <form>
-        <h1>Validated Form</h1>
-        <div>
-          <input type="text" placeholder="Name" onChange= {this.valName} />
-          <div style={valField.style}>{this.state.name} </div>
-        </div>
-        <div>
-          <input type="text" placeholder="Email" onChange= {this.valEmail}/>
-          <div style={valField.style}>{this.state.email} </div>
+        <h1 style={title.style}>Validated Form</h1>
+        <div style={inputFieldsContainer.style} >
+          <div>
+            <input type="text" placeholder="Name" onChange= {this.valName} />
+            <span style={valField.style}>{this.state.name} </span>
+          </div>
+          <div>
+            <input type="text" placeholder="Email" onChange= {this.valEmail}/>
+            <span style={valField.style}>{this.state.email} </span>
+          </div>
         </div>
         <br />
+        <div style={inputButtonContainer.style} >
         <button type="button" 
         disabled={!this.state.subButton} 
-        onClick={this.handleSubmit}>Submit</button>
+        onClick={this.handleSubmit}>Submit</button></div>
        </form> : <div>
-         <h1>Validated Form</h1>
-         <div>Thank You</div>
+         <h1 style={title.style}>Validated Form</h1>
+         <div style={inputButtonContainer.style} >
+          <div>Thank You</div>
+        </div>
        </div>}
      </div>
     );
