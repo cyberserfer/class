@@ -94,13 +94,28 @@ class App extends Component {
       personal: [],
       work: [],
       personaltimetotal: 0, 
-      worktimetotal: 0
+      worktimetotal: 0,
+      tempproject: "",
+      tempdescription: "",  
+      tempminutes: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.valDescription = this.valDescription.bind(this)
+  }
+
+  valDescription(e){
+    let desc = e.target.value.trim();
+    desc.substr(4[1]) === null;
+    this.setState({tempdescription: desc})
+  }
+
+  valMinutes(e){
+    let min = e.target.value;
+    min ;
   }
 
   handleSubmit(e) {
-    push
+//push
   }
 
   render() {
@@ -116,15 +131,16 @@ class App extends Component {
               </select>
           </div>
           <div style={inputItem.style}>
-            <div style={leftItem.style} >Description</div><input style={rightItem.style} type="text" />
+            <div style={leftItem.style} >Description</div><input style={rightItem.style} type="text" onBlur={this.valDescription} />
           </div>
           <div style={inputItem.style}>
-            <div style={leftItem.style}>Minutes</div><input style={rightItem.style} type="number" />
+            <div style={leftItem.style}>Minutes</div><input style={rightItem.style} defaultValue="1" type="number" min="1" max="240"/>
           </div>
           <button type="submit" onClick={this.handleSubmit}>Add</button>
         </div>
-        <div style={displayArea.style} >
-          <div style={projectContainer.style}></div>
+        <hr />
+        <div style={displayArea.style}>
+          <div style={projectContainer.style}>{this.state.tempdescription}</div>
           <div style={projectContainer.style}></div>
         </div>
       </div>
