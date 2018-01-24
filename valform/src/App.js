@@ -19,6 +19,7 @@ class App extends Component {
       email: '',
       nameValid: false,
       emailValid: false,
+      subButton: false,
       formDisplay: true // true=form false=thank you
     };
 
@@ -35,6 +36,7 @@ class App extends Component {
     else{
       this.setState({name: null});
       this.setState({nameValid: true})
+      this.state.nameValid && this.state.emailValid === true ? this.setState({subButton: true}) : this.setState({subButton: false})
     }
   }
 
@@ -44,10 +46,12 @@ class App extends Component {
     if (regex.exec(name)){
         this.setState({email: null})
         this.setState({emailValid: true})
+        this.state.nameValid && this.state.emailValid === true ? this.setState({subButton: true}) : this.setState({subButton: false})
     }
     else{
         this.setState({email: 'Please enter a valid email'});
     }
+    return
   }
 
   handleSubmit(e) {
@@ -70,7 +74,7 @@ class App extends Component {
         </div>
         <br />
         <button type="button" 
-        disabled={this.state.nameValid || this.state.emailValid === false ? true : false} 
+        disabled={!this.state.subButton} 
         onClick={this.handleSubmit}>Submit</button>
        </form> : <div>
          <h1>Validated Form</h1>

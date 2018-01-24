@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 let selectedsquare = {
   style:{
     backgroundColor: "blue", 
@@ -114,6 +113,40 @@ let outercontainer = {
   }
 }
 
+const Squares = (props) => {
+    switch(props.boardstate) {
+      case 'uninitialized':
+        return <div style={square.style}></div>;
+      case 'unrevealed':
+        return <div style={square.style}></div>;
+      case 'memorize':
+        return <div style={props.findbox === 'N' ? square.style : selectedsquare.style}></div>;
+      case 'guess':
+        return <div style={square.style}></div>;
+      case 'check':
+        return <div style={square.style}></div>;
+      default:
+        throw new Error('Something happened - value = '+ props.boardstate);
+    }
+}
+
+const Footer = (props) => {
+
+  switch(props.boardstate) {
+    case 'uninitialized':
+      return <div style={infoboxbutton.style} onClick={this.updateBoardState}> Start Game </div>;
+    case 'unrevealed':
+      return <div style={infobox.style}> Get ready to memorize in  </div>;
+    case 'memorize':
+      return <div style={infobox.style}> </div>;
+    case 'guess':
+      return <div style={infobox.style}> Guess the correct cells </div>;
+    case 'check':
+      return <div style={infoboxbutton.style}> Play again? </div>;
+    default:
+      throw new Error('Something happened - value = '+ props.boardstate)
+  }
+}
 
 class App extends Component {
   
@@ -140,41 +173,17 @@ class App extends Component {
     };
   }
 
-const Squares = (props) => {
+// randomInitiator() {
+//   let num = 0, i = 0
+//   while(i < 4){
+//     num = Math.floor(Math.random()*12)
+//     if(this.state.boxes[num].userselect === 'N'){
+//       this.setState
+//     }
+//   }
+// }
 
-    switch(this.state.boardstate) {
-      case 'uninitialized':
-        return <div style={square.style}></div>;
-      case 'unrevealed':
-        return <div style={square.style}></div>;
-      case 'memorize':
-        return <div style={props.findbox === 'N' ? square.style : selectedsquare.style}></div>;
-      case 'guess':
-        return <div style={square.style}></div>;
-      case 'check':
-        return <div style={square.style}></div>;
-      default:
-        throw new Error('Something happened - value = '+ props.boardstate);
-    }
-}
 
-const Footer = (props) => {
-
-  switch(this.state.boardstate) {
-    case 'uninitialized':
-      return <div style={infoboxbutton.style} onClick={updateBoardState}> Start Game </div>;
-    case 'unrevealed':
-      return <div style={infobox.style}> Get ready to memorize in  </div>;
-    case 'memorize':
-      return <div style={infobox.style}> </div>;
-    case 'guess':
-      return <div style={infobox.style}> Guess the correct cells </div>;
-    case 'check':
-      return <div style={infoboxbutton.style}> Play again? </div>;
-    default:
-      throw new Error('Something happened - value = '+ this.state.boardstate)
-  }
-}
 
 updateBoardState() {
   let newState = ''
@@ -201,12 +210,12 @@ updateBoardState() {
 }
 
   render() {
-    const boxes = this.state.boxes.map((boxes) => (
+    const boxes = this.state.boxes.map((box) => (
       <Squares
-        key = {'key-' + boxes.id}
-        id={boxes.id}
-        findbox={boxes.findbox}
-        color={boxes.lib}
+        key = {'key-' + box.id}
+        id={box.id}
+        findbox={box.findbox}
+        color={box.lib}
         boardstate={this.state.boardstate}
       />
     ));
