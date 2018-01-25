@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 let pageContainer = {
   style:{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
     border: "solid black",
     borderSize: "2px"
   }
@@ -13,10 +9,7 @@ let pageContainer = {
 
 let inputArea = {
   style:{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    
     border: "solid black",
     borderSize: "2px"
   }
@@ -24,11 +17,7 @@ let inputArea = {
 
 let inputContainer = {
   style:{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "400px",
+    
     border: "solid black",
     borderSize: "2px"
   }
@@ -130,13 +119,13 @@ class App extends Component {
 
   handleAdd(e) {
     if(this.state.tempproject === 'personal'){
-      this.state.personal.push({id: this.state.personalid, minutes: this.state.tempminutes, desc: this.state.desc})
-      this.setState({personaltimetotal: this.state.personaltimetotal+this.state.tempminutes})
-      this.setState({id: this.state.personalid + 1})
+      this.state.personal.push({id: this.state.personalid, minutes: this.state.tempminutes, desc: this.state.tempdescription})
+      this.setState({personaltimetotal: parseInt(this.state.personaltimetotal, 10)+parseInt(this.state.tempminutes, 10)})
+      this.setState({personalid: parseInt(1, 10)+parseInt(this.state.personalid, 10)})
     }else{
-      this.state.work.push({id: this.state.workid, minutes: this.state.tempminutes, desc: this.state.desc})
-      this.setState({worktimetotal: this.state.worktimetotal+this.state.tempminutes})
-      this.setState({id: 1+Number(this.state.workid)})
+      this.state.work.push({id: this.state.workid, minutes: this.state.tempminutes, desc: this.state.tempdescription})
+      this.setState({worktimetotal: parseInt(this.state.worktimetotal, 10)+parseInt(this.state.tempminutes, 10)})
+      this.setState({workid: parseInt(1, 10)+parseInt(this.state.workid, 10)})
     }
   }
   
@@ -176,8 +165,14 @@ class App extends Component {
         </div>
         <hr />
         <div style={displayArea.style}>
-          <div style={projectContainer.style}>{personal}</div>
-          <div style={projectContainer.style}>{work}</div>
+          <div style={projectContainer.style}>
+            <span>Personal</span><span>{this.state.personaltimetotal}</span>
+            <div>{personal}</div>
+          </div>
+          <div style={projectContainer.style}>
+          <span>Personal</span><span>{this.state.worktimetotal}</span>
+            <div>{work}</div>
+          </div>
         </div>
       </div>
     );
