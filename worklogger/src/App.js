@@ -84,6 +84,9 @@ let projectContainer = {
   }
 }
 
+const ActivityList = (props) => {
+  return <div><span>{props.min}</span> <span>{props.desc} </span></div>
+}
 
 class App extends Component {
 
@@ -91,41 +94,74 @@ class App extends Component {
     super(props);
 
     this.state = {
-      personal: [],
+      personal: [],  // {id: minutes: , desc:  }
       work: [],
       personaltimetotal: 0, 
       worktimetotal: 0,
-      tempproject: "",
+      personalid: 0,
+      workid: 0,
+      tempproject: "personal",
       tempdescription: "",  
-      tempminutes: "",
+      tempminutes: 0,
+      submitvalid: 0
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
     this.valDescription = this.valDescription.bind(this)
+    this.valMinutes = this.valMinutes.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
+  }
+
+  handleSelect(e){
+    let selected = e.target.value
+    this.setState({tempproject: selected})
   }
 
   valDescription(e){
     let desc = e.target.value.trim();
-    desc.substr(4[1]) === null;
-    this.setState({tempdescription: desc})
+    //if(desc.substr(4[1]) === null){
+      this.setState({tempdescription: desc})
+    //}
   }
 
   valMinutes(e){
     let min = e.target.value;
-    min ;
+    this.setState({tempminutes: min})
   }
 
-  handleSubmit(e) {
-//push
+  handleAdd(e) {
+    if(this.state.tempproject === 'personal'){
+      this.state.personal.push({id: this.state.personalid, minutes: this.state.tempminutes, desc: this.state.desc})
+      this.setState({personaltimetotal: this.state.personaltimetotal+this.state.tempminutes})
+      this.setState({id: this.state.personalid + 1})
+    }else{
+      this.state.work.push({id: this.state.workid, minutes: this.state.tempminutes, desc: this.state.desc})
+      this.setState({worktimetotal: this.state.worktimetotal+this.state.tempminutes})
+      this.setState({id: 1+Number(this.state.workid)})
+    }
   }
-
+  
   render() {
+    this.state.personal.sort((a, b) => (b.minutes - a.minutes));
+    this.state.work.sort((a, b) => (b.minutes - a.minutes));
+    const personal = this.state.personal.map((personal) => (
+      <ActivityList 
+        key = {'pers-' + personal.id} 
+        desc={personal.desc} 
+        min={personal.minutes} />
+    ));
+    const work = this.state.work.map((work) => (
+      <ActivityList 
+        key = {'work-' + work.id} 
+        desc={work.desc} 
+        min={work.minutes} />
+    ));
     return (
       <div style={pageContainer.style}>
         <div style={inputArea.style} >Work Logger</div>
         <div style={inputContainer.style}> 
           <div style={inputItem.style}>
             <div style={leftItem.style}>Project</div>
-              <select style={rightItem.style} type="dropdown">
+              <select style={rightItem.style} type="dropdown" onChange={this.handleSelect} >
                 <option value="personal">Personal</option>
                 <option value="work">Work</option>
               </select>
@@ -134,14 +170,14 @@ class App extends Component {
             <div style={leftItem.style} >Description</div><input style={rightItem.style} type="text" onBlur={this.valDescription} />
           </div>
           <div style={inputItem.style}>
-            <div style={leftItem.style}>Minutes</div><input style={rightItem.style} defaultValue="1" type="number" min="1" max="240"/>
+            <div style={leftItem.style}>Minutes</div><input style={rightItem.style} type="number" min="1" max="240" onBlur={this.valMinutes}/>
           </div>
-          <button type="submit" onClick={this.handleSubmit}>Add</button>
+          <button type="submit" onClick={this.handleAdd}>Add</button>
         </div>
         <hr />
         <div style={displayArea.style}>
-          <div style={projectContainer.style}>{this.state.tempdescription}</div>
-          <div style={projectContainer.style}></div>
+          <div style={projectContainer.style}>{personal}</div>
+          <div style={projectContainer.style}>{work}</div>
         </div>
       </div>
     );
