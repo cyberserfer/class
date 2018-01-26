@@ -1,78 +1,5 @@
 import React, { Component } from 'react';
 
-let pageContainer = {
-  style:{
-    border: "solid black",
-    borderSize: "2px"
-  }
-}
-
-let inputArea = {
-  style:{
-    
-    border: "solid black",
-    borderSize: "2px"
-  }
-}
-
-let inputContainer = {
-  style:{
-    
-    border: "solid black",
-    borderSize: "2px"
-  }
-}
-
-let inputItem = {
-  style:{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "400px",
-    border: "solid black",
-    borderSize: "2px"
-  }
-}
-
-let leftItem = {
-  style:{
-    float: "right",
-    border: "solid black",
-    width: "100px",
-    borderSize: "2px"
-  }
-}
-
-let rightItem = {
-  style:{
-    float: "left",
-    width: "100px",
-    border: "solid black",
-    borderSize: "2px"
-  }
-}
-
-let displayArea = {
-  style:{
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    border: "solid black",
-    borderSize: "2px"
-  }
-}
-
-let projectContainer = {
-  style:{
-    height: "125px",
-    width: "200px",
-    border: "solid black",
-    borderSize: "2px"
-  }
-}
-
 const ActivityList = (props) => {
   return <div><span>{props.min}</span> <span>{props.desc} </span></div>
 }
@@ -145,33 +72,49 @@ class App extends Component {
         min={work.minutes} />
     ));
     return (
-      <div style={pageContainer.style}>
-        <div style={inputArea.style} >Work Logger</div>
-        <div style={inputContainer.style}> 
-          <div style={inputItem.style}>
-            <div style={leftItem.style}>Project</div>
-              <select style={rightItem.style} type="dropdown" onChange={this.handleSelect} >
+      <div>
+        <div>Work Logger</div>
+        <div> 
+          <div>
+            <div>Project</div>
+              <select type="dropdown" onChange={this.handleSelect} >
                 <option value="personal">Personal</option>
                 <option value="work">Work</option>
               </select>
           </div>
-          <div style={inputItem.style}>
-            <div style={leftItem.style} >Description</div><input style={rightItem.style} type="text" onBlur={this.valDescription} />
+          <div>
+            <div>Description</div><input type="text" onBlur={this.valDescription} />
           </div>
-          <div style={inputItem.style}>
-            <div style={leftItem.style}>Minutes</div><input style={rightItem.style} type="number" min="1" max="240" onBlur={this.valMinutes}/>
+          <div>
+            <div>Minutes</div><input type="number" min="1" max="240" onBlur={this.valMinutes}/>
           </div>
-          <button type="submit" onClick={this.handleAdd}>Add</button>
+          <button className=".button" type="submit" onClick={this.handleAdd}>Add</button>
         </div>
         <hr />
-        <div style={displayArea.style}>
-          <div style={projectContainer.style}>
-            <span>Personal</span><span>{this.state.personaltimetotal}</span>
-            <div>{personal}</div>
-          </div>
-          <div style={projectContainer.style}>
-          <span>Personal</span><span>{this.state.worktimetotal}</span>
-            <div>{work}</div>
+        <div>
+          <div className="grid-example">
+            <div className="row small-collapse large-uncollapse">
+                <div className="small-6 columns">
+                  <div className="card">
+                    <div className="row small-collapse large-uncollapse">
+                      <div className="small-4 columns">Personal</div>
+                      <div className="small-4 columns"></div>
+                      <div className="small-4 columns">{this.state.personaltimetotal}</div>
+                    </div>
+                    <div>{personal}</div>
+                  </div>         
+                </div>
+                <div className="small-6 columns">
+                  <div className="card">
+                    <div className="row small-collapse large-uncollapse">
+                      <div className="small-4 columns">Work</div>
+                      <div className="small-4 columns"></div>
+                      <div className="small-4 columns">{this.state.worktimetotal}</div>
+                    </div>
+                    <div>{work}</div>
+                  </div>
+                </div>
+            </div>
           </div>
         </div>
       </div>
