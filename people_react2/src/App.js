@@ -56,7 +56,7 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
-
+    this.handleBackButton = this.handleBackButton.bind(this);
   }
 
   handleSelect(userId, event) {
@@ -66,12 +66,13 @@ class App extends Component {
     let displayUser = this.state.users.filter( (user) => {
       return user.id.indexOf(userId) !== -1;
     })
-  this.setState({dispUser: displayUser})
-  this.setState({dispRes: false})
-
+    this.setState({dispUser: displayUser})
+    this.setState({dispRes: false})
     console.log(displayUser)
- 
+  }
 
+  handleBackButton(){
+    this.setState({dispRes: true}) 
   }
 
   handleChange(event){
@@ -97,6 +98,7 @@ class App extends Component {
         </div>
       :
         <div>
+          <button onClick={(event) => this.handleBackButton(event)}>back</button>
         {this.state.dispUser.map((user, i) => 
         <div key={i}>
           <ul>Name: {user.name} </ul> 
