@@ -63,9 +63,7 @@ class App extends Component {
 
     console.log("its alive")
     console.log(userId)
-    let displayUser = this.state.users.filter( (user) => {
-      return user.id.indexOf(userId) !== -1;
-    })
+    let displayUser = this.state.users.find( (user) => (user.id === userId))
     this.setState({dispUser: displayUser})
     this.setState({dispRes: false})
     console.log(displayUser)
@@ -99,14 +97,14 @@ class App extends Component {
       :
         <div>
           <button onClick={(event) => this.handleBackButton(event)}>back</button>
-        {this.state.dispUser.map((user, i) => 
-        <div key={i}>
-          <ul>Name: {user.name} </ul> 
-          <ul> City: {user.city} </ul>
-          <ul> Industry: {user.industry} </ul>
-          <ul> Hobbies: {user.industry}</ul>
-          <ul> Email: {user.industry} </ul>
-        </div>)}
+
+        <div>
+          <ul>Name: {this.state.dispUser.name} </ul> 
+          <ul> City: {this.state.dispUser.city} </ul>
+          <ul> Industry: {this.state.dispUser.industry} </ul>
+          <ul> Hobbies: {this.state.dispUser.hobbies}</ul>
+          <ul> Email: {this.state.dispUser.email} </ul>
+        </div>
         </div>
       
     );
