@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Redux Counter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div>
+            Counter:
+            <span id="counter"></span>
+        </div>
+        <button id="dec">Decrement</button>
+        <button id="inc">Increment</button>
+
+        <script>
+            let state = {
+                    counter: 0
+                };
+
+            const reducer = (state = 0, action) => {
+                
+                switch(action.type){
+                
+                case 'INC':
+                return {
+                counter: state.counter + 1
+                }
+                
+                case 'DEC':
+                return {
+                counter: state.counter - 1
+                }
+                
+                default:
+                return state
+                
+                }
+            }
+
+            const dispatch = (action) => {
+                state = reducer(state, action);
+                render();
+            }
+
+            const render = () => {
+                document.getElementById('counter').innerText = state.counter;
+            }
+            
+            render();
+
+            document.getElementById('inc').onclick = () => dispatch({ type: 'INC' });
+            document.getElementById('dec').onclick = () => dispatch({ type: 'DEC' });
+
+        </script>
+    </body>
+</html>
