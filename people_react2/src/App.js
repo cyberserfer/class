@@ -43,7 +43,8 @@ const initialState = {
     new User('Train', 'Oaklahoma City', 'Real Engineer', 'choo choo', 'chooc.choo@email.com'),
   ],
   input: '',
-  dispRes: true
+  dispRes: true,
+  dispUser: []
 }
 
 
@@ -65,11 +66,11 @@ class App extends Component {
     let displayUser = this.state.users.filter( (user) => {
       return user.id.indexOf(userId) !== -1;
     })
-    let {user} = displayUser;
+  this.setState({dispUser: displayUser})
+  this.setState({dispRes: false})
 
     console.log(displayUser)
-    console.log(user)
-    
+ 
 
   }
 
@@ -96,7 +97,14 @@ class App extends Component {
         </div>
       :
         <div>
-          <h1> stuff </h1>
+        {this.state.dispUser.map((user, i) => 
+        <div key={i}>
+          <ul>Name: {user.name} </ul> 
+          <ul> City: {user.city} </ul>
+          <ul> Industry: {user.industry} </ul>
+          <ul> Hobbies: {user.industry}</ul>
+          <ul> Email: {user.industry} </ul>
+        </div>)}
         </div>
       
     );
