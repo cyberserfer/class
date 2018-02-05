@@ -7,7 +7,8 @@ class SearchDisplay extends Component{
         super(props)
         this.state = {
             input: "",
-            usersList: []
+            usersList: [],
+            users: []
         }
     }
     
@@ -15,14 +16,14 @@ class SearchDisplay extends Component{
 
         
 console.log(this.props)
-    const {usersList=[], input, users} = this.props
+    const {usersList, input, users} = this.props
+    let showList = (usersList) ? usersList : users
         return (
             <div>
-            {console.log("value of input")}{console.log(input)}
             <input value={input} id="searchBox" placeholder="Search..." onChange={
                 (event) => {this.props.handleSearchUser(event.target.value); }}/>
             <div>
-            {usersList.map(usersList => <li key={usersList.id} onClick={() => this.props.handleSelectedUser(usersList)}>{usersList.name} </li>)}
+            {showList.map(showList => <li key={showList.id} onClick={() => this.props.handleSelectedUser(showList)}>{showList.name} </li>)}
             </div>
         </div>
         )

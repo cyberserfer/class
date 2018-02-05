@@ -58,17 +58,8 @@ const genId = (str1, str2, str3) => {
         return {...state};
       }
       case SEARCH_USER:
-        //const {input} = action.payload
-        console.log("in search user")
-        console.log(action.payload)
         const { users, filteredUsersList } = state;
-        console.log("value of users")
-        console.log(users)
-        console.log("value of filteredUsersList")
-        console.log(!filteredUsersList)
         let filteredUsers = users.filter( (user) => user.name.toLowerCase().includes(action.payload.toLowerCase()));
-        console.log("value of filteredUsers")
-        console.log(filteredUsers)
         return {...state, 
           filteredUsersList: filteredUsers,
           usersList: filteredUsers, 
@@ -83,7 +74,9 @@ const genId = (str1, str2, str3) => {
 
       case BACK_BUTTON:
         return {...state, 
-          viewState: SearchDisplay
+          viewState: SearchDisplay,
+          usersList: users, 
+          input: ""
         };
 
       default:
