@@ -58,7 +58,7 @@ const genId = (str1, str2, str3) => {
         return {...state};
       }
       case SEARCH_USER:
-        const { users, filteredUsersList } = state;
+        const { users } = state;
         let filteredUsers = users.filter( (user) => user.name.toLowerCase().includes(action.payload.toLowerCase()));
         return {...state, 
           filteredUsersList: filteredUsers,
