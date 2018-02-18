@@ -7,6 +7,7 @@ const App = (props) => {
       <div>
         <h1>Ghibli</h1>
         <People />
+        <PeopleDescription />
       </div>
     );
   }

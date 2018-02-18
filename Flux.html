@@ -1,0 +1,70 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <h1>Title:</h1>
+  <span id="title"></span>
+  <button id="buttonTitle">Update Title</button>
+  <input id="titleInput" type="text" />
+  <button id="buttonContent">Update Content</button>
+  <div>Content Section</div>
+  <div id="contentSection"></div>
+  <script>
+    let state = {
+      title: "default",
+      content: []
+    }
+    render(state);
+    document.getElementById("buttonContent").addEventListener("click", setContent)
+    document.getElementById("buttonTitle").addEventListener("click", setTitle)
+    function setContent() {
+      state = reduce(state, "updateContent");
+      render(state);
+    }
+    function setTitle() {
+      state = reduce(state, "updateTitle");
+      render(state);
+    }
+    function render(state) {
+      document.getElementById("title").innerHTML = state.title
+      document.getElementById("contentSection").innerHTML = state.content
+    }
+    function reduce(currState, action) {
+      let returnObject = Object.assign({}, currState);
+      switch (action) {
+        case 'updateContent':
+          returnObject.content.push(document.getElementById("titleInput").value);
+          return returnObject;
+        case 'updateTitle':
+          returnObject.title = document.getElementById("titleInput").value;
+          return returnObject;
+        default:
+          return state;
+      }
+    }
+    /*
+                  function Component {
+                    static getStores() {
+                      return [CounterStore];
+                    }
+                    static calculateState(prevState) {
+                      return {
+                        counter: CounterStore.getState(),
+                      };
+                    }
+                    render() {
+                      return <CounterUI counter={this.state.counter} />;
+                    }
+                  }
+    */
+    //              const container = Container.create(CounterContainer);
+  </script>
+</body>
+
+</html>

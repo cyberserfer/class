@@ -4,7 +4,6 @@ import './App.css';
 import './ui-toolkit/css/nm-cx/main.css';
 import moment from 'moment';
 
-
 function NoteCard(props) {
   
   return(

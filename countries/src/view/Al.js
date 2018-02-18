@@ -1,5 +1,15 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {numberWithCommas} from '../helper';
+import {
+    Switch,
+    Route,
+    BrowserRouter,
+    Link,
+    withRouter
+  } from 'react-router-dom';
+ 
+
 
 class Al extends Component {
     constructor(props){
@@ -27,9 +37,9 @@ class Al extends Component {
 
     trackCountry(val){
         console.log('inside trackCountry')
-        this.setState({tracked: this.state.tracked.concat(val)})
+        // this.setState({tracked: this.state.tracked.concat(val)})
 
-        axios.post("http://5a85e22d085fdd00127042e8.mockapi.io/al/:id/tracked", {countryId: val})
+        axios.post("http://5a85e22d085fdd00127042e8.mockapi.io/tracked/", {val})
         .then( (response) => {
             console.log('success')
         
@@ -48,21 +58,21 @@ class Al extends Component {
         if (regionInfo) {
             return(
                 <div>
-                    <div> AL </div>
+                    <div> <h1>AL</h1> </div>
                     <div>
-                    {regionInfo.map(regionInfo =>
-                        <div className='card' key={regionInfo.numericCode}>
+                    {regionInfo.map(country =>
+                        <div className='card' key={country.numericCode}>
                             <div className='row'>
                                 <div className="small-4 medium-4 columns">
-                                    <img src={regionInfo.flag} alt="flag" />
+                                    <img src={country.flag} alt="flag" />
                                 </div>
                                 <div className="small-4 medium-6 columns">
-                                    <div>Country Name: {regionInfo.name}</div>
-                                    <div>Capital: {regionInfo.capital} </div>
-                                    <div>Population: {regionInfo.population} </div>
+                                    <div>Country Name: <Link to={`/countries/${country.name}`}> {country.name}</Link></div>
+                                    <div>Capital: {country.capital} </div>
+                                    <div>Population: {numberWithCommas(country.population)} </div>
                                 </div>
                                 <div className="small-2 medium-2 columns">
-                                    <button onClick={() => this.trackCountry(regionInfo.numericCode)}>Track</button>
+                                    <button onClick={() => this.trackCountry(country)}>Track</button>
                                 </div>
                             </div>
                         </div>
@@ -76,4 +86,4 @@ class Al extends Component {
 
 
 
-export default Al
+export default withRouter(Al)
