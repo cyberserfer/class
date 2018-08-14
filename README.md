@@ -1,4 +1,7 @@
-# class
+# React Bootcamp
+
+## Assignments and notes from class
+
 Recap (2.5.2018)
 
     Render with HTML and CSS 
